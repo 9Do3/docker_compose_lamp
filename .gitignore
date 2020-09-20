@@ -1,0 +1,9 @@
+# for _httpd dir
+_httpd/conf/*
+!_httpd/conf/default.conf
+_httpd/log/*
+_httpd/log/.gitkeep
+
+# for www dir
+www/*
+!www/.gitkeep

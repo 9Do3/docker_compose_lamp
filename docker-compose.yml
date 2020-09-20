@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  php:
+    build: ./_php
+    volumes:
+      - ./_php/php-ext.ini:/usr/local/etc/php/conf.d/php-ext.ini
+      - ./_httpd/conf:/etc/apache2/sites-enabled
+      - ./_httpd/log:/var/log/apache2
+      - ./www:/var/www/html
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - mysql
+      - phpmyadmin
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+    - PMA_ARBITRARY=1
+    - PMA_HOSTS=mysql
+    - PMA_USER=root
+    - PMA_PASSWORD=root
+    ports:
+    - 8080:80
