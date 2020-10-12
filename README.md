@@ -71,3 +71,14 @@ https://hub.docker.com/_/phpmyadmin
 ・phpmyadminのバージョンは「最新」が入ります。（指定する場合は上記リンクの「Tags」から指定バージョンを探して「docker-compose.yml」に設定してください）
 ・「http://localhost:8080/」でアクセスできます。
 ```
+
+---
+
+**mailcatcher**
+https://hub.docker.com/r/schickling/mailcatcher/
+
+```
+・mailcatcherのバージョンは「最新」が入ります。
+・smtpポートは「1025」です。
+・「http://localhost:1080/」でアクセスできます。
+```

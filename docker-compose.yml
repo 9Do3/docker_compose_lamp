@@ -33,3 +33,9 @@ services:
     - PMA_PASSWORD=root
     ports:
     - 8080:80
+
+  mailcatcher:
+    image: schickling/mailcatcher:latest
+    ports:
+    - 1080:1080
+    - 1025:1025
